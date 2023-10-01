@@ -30,6 +30,6 @@ require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, f
 
 end
 
-vim.keymap.set("n", "<C-left>", "b")
-vim.keymap.set("n", "<C-right>", "w")
+require("evanjoseph")
+
 
