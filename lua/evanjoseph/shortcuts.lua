@@ -1,5 +1,7 @@
 vim.keymap.set("n", "<C-left>", "b")
 vim.keymap.set("n", "<C-right>", "w")
+vim.keymap.set("", "<pageDown>", "<C-d>")
+vim.keymap.set("", "<pageUp>", "<C-u>")
 
 -- delete
 vim.keymap.set("n", "dq", "di'")
@@ -11,6 +13,17 @@ vim.keymap.set("n", "dn", "dit")
 vim.keymap.set("n", "dA", "Gdgg")
 vim.keymap.set("n", "dW", "diwx")
 -- delete
+
+-- change
+vim.keymap.set("n", "cq", "ci'")
+vim.keymap.set("n", "cQ", "ci\"")
+vim.keymap.set("n", "cj", "ci(")
+vim.keymap.set("n", "co", "ci{")
+vim.keymap.set("n", "ck", "ci[")
+vim.keymap.set("n", "cn", "cit")
+vim.keymap.set("n", "cA", "ggcG")
+vim.keymap.set("n", "cW", "ciw")
+-- change
 
 -- copy
 vim.keymap.set("n", "e", "y")
@@ -37,20 +50,3 @@ vim.keymap.set("n", "wk", "vi[p")
 vim.keymap.set("n", "wn", "vitp")
 vim.keymap.set("n", "wA", "ggvGp")
 vim.keymap.set("n", "wW", "viwp")
-
-
-vim.keymap.set("n", "pq", "vi'p")
-vim.keymap.set("n", "pQ", "vi\"p")
-vim.keymap.set("n", "pj", "vi(p")
-vim.keymap.set("n", "po", "vi{p")
-vim.keymap.set("n", "pk", "vi[p")
-vim.keymap.set("n", "pn", "vitp")
-vim.keymap.set("n", "pA", "ggvGp")
-vim.keymap.set("n", "pW", "viwp")
-
-
--- past
-
--- "Evandro José da Silva Mariano"
--- "[Evandro José {da} Silva Mariano]"
--- <Evan></Evan>
