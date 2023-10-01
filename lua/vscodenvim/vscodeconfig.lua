@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 
 -- Remaps
 
@@ -77,4 +76,4 @@ vim.keymap.set("n", "vt", "vit")
 
 -- Visual mode
 vim.keymap.set("v", "q", "y")
-vim.keymap.set("v", "q", "y")
+

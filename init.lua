@@ -1,6 +1,6 @@
 if vim.g.vscode then
   -- VSCode extension
-    require("vscodenvim")  
+    require("vscodenvim")
   -- require("vscode")
 else
 
@@ -28,8 +28,8 @@ end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 
- 
 end
 
-
+vim.keymap.set("n", "<C-left>", "b")
+vim.keymap.set("n", "<C-right>", "w")
 
