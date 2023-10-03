@@ -59,6 +59,7 @@ if not vim.ui.open then maps.n["gx"] = { utils.system_open, desc = "Open the fil
 
 -- Plugin Manager
 maps.n["<leader>p"] = sections.p
+maps.n["<leader><space>"] = {"/", desc="Pesquisa"}
 maps.n["<leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" }
 maps.n["<leader>ps"] = { function() require("lazy").home() end, desc = "Plugins Status" }
 maps.n["<leader>pS"] = { function() require("lazy").sync() end, desc = "Plugins Sync" }
@@ -383,6 +384,8 @@ if is_available "toggleterm.nvim" then
   maps.t["<F4>"] = maps.n["<F4>"]
   maps.n["<C-'>"] = maps.n["<F4>"] -- requires terminal that supports binding <C-'>
   maps.t["<C-'>"] = maps.n["<F4>"] -- requires terminal that supports binding <C-'>
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+
 end
 
 if is_available "nvim-dap" then
