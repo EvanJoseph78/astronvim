@@ -26,7 +26,7 @@ vim.keymap.set("n", "cW", "ciw")
 -- change
 
 -- copy
-vim.keymap.set("n", "e", "y")
+vim.keymap.set("", "e", "y")
 vim.keymap.set("n", "E", "_y$")
 vim.keymap.set("n", "eq", "yi'")
 vim.keymap.set("n", "eQ", "yi\"")
@@ -50,3 +50,11 @@ vim.keymap.set("n", "wk", "vi[p")
 vim.keymap.set("n", "wn", "vitp")
 vim.keymap.set("n", "wA", "ggvGp")
 vim.keymap.set("n", "wW", "viwp")
+
+-- Visual 
+
+vim.keymap.set("n", "vj", "vi(")
+vim.keymap.set("n", "vo", "vi{")
+vim.keymap.set("n", "vk", "vi[")
+vim.keymap.set("n", "vQ", "vi\"")
+vim.keymap.set("n", "vq", "vi'")
