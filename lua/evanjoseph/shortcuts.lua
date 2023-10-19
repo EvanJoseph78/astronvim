@@ -5,7 +5,6 @@ vim.keymap.set("", "<pageUp>", "<C-u>")
 vim.keymap.set("i", "<C-s>", "<cmd>w!<cr><Esc>zzi")
 vim.keymap.set("", "<C-z>", "<Esc>u")
 vim.keymap.set("i", "<C-h>", "<C-w>")
- 
 vim.keymap.set("n", "<C-S-pageUp>", "<C-W><")
 vim.keymap.set("n", "<C-S-pageDown>", "<C-W>>")
 vim.keymap.set("n", "<A-up>", "<C-W>+")
