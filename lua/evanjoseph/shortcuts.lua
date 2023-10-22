@@ -60,6 +60,7 @@ vim.keymap.set("n", "wW", "viwp")
 
 -- Visual 
 
+vim.keymap.set("n", "vA", "ggVG")
 vim.keymap.set("n", "vj", "vi(")
 vim.keymap.set("n", "vo", "vi{")
 vim.keymap.set("n", "vk", "vi[")

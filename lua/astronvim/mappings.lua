@@ -196,8 +196,8 @@ end
 -- NeoTree
 if is_available "neo-tree.nvim" then
   maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<F3>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<F1>"] = {
+  maps.n["<F1>"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
+  maps.n["<F3>"] = {
     function()
       if vim.bo.filetype == "neo-tree" then
         vim.cmd.wincmd "p"
@@ -207,6 +207,14 @@ if is_available "neo-tree.nvim" then
     end,
     desc = "Toggle Explorer Focus",
   }
+  vim.keymap.set("i", "<F1>", "<cmd>Neotree toggle<cr>")
+  vim.keymap.set("i", "<F3>", function()
+      if vim.bo.filetype == "neo-tree" then
+        vim.cmd.wincmd "p"
+      else
+        vim.cmd.Neotree "focus"
+      end
+    end)
 end
 
 -- Session Manager
@@ -380,6 +388,7 @@ if is_available "toggleterm.nvim" then
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
   maps.n["<F4>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
+  vim.keymap.set("i", "<F4>", "<cmd>ToggleTerm<cr>")
   maps.t["<F4>"] = maps.n["<F4>"]
   maps.n["<C-'>"] = maps.n["<F4>"] -- requires terminal that supports binding <C-'>
   maps.t["<C-'>"] = maps.n["<F4>"] -- requires terminal that supports binding <C-'>
