@@ -37,9 +37,6 @@ end, { remap = true })
 vim.keymap.set('', 's', function()
   hop.hint_char1()
 end, { remap = true })
-vim.keymap.set('', 'L', function()
-  hop.hint_lines()
-end, { remap = true })
 -- hop
 
 -- Normal --
@@ -59,7 +56,7 @@ if not vim.ui.open then maps.n["gx"] = { utils.system_open, desc = "Open the fil
 
 -- Plugin Manager
 maps.n["<leader>p"] = sections.p
-maps.n["<leader><space>"] = {"/", desc="Pesquisa"}
+-- maps.n["<leader><space>"] = {"/", desc="Pesquisa"}
 maps.n["<leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" }
 maps.n["<leader>ps"] = { function() require("lazy").home() end, desc = "Plugins Status" }
 maps.n["<leader>pS"] = { function() require("lazy").sync() end, desc = "Plugins Sync" }
@@ -176,6 +173,18 @@ if is_available "Comment.nvim" then
     "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
     desc = "Toggle comment for selection",
   }
+  maps.n["<C-_>"] = {
+    function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
+    desc = "Toggle comment line",
+  }
+  maps.v["<C-_>"] = {
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+    desc = "Toggle comment for selection",
+  }
+  maps.i["<C-_>"] = {
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+    desc = "Toggle comment for selection",
+  }
 end
 
 -- GitSigns
@@ -220,22 +229,22 @@ end
 
 -- Session Manager
 if is_available "neovim-session-manager" then
-  maps.n["<leader>S"] = sections.S
-  maps.n["<leader>Sl"] = { "<cmd>SessionManager! load_last_session<cr>", desc = "Load last session" }
-  maps.n["<leader>Ss"] = { "<cmd>SessionManager! save_current_session<cr>", desc = "Save this session" }
-  maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
-  maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
-  maps.n["<leader>S."] =
+  maps.n["<leader>s"] = sections.S
+  maps.n["<leader>sl"] = { "<cmd>SessionManager! load_last_session<cr>", desc = "Load last session" }
+  maps.n["<leader>ss"] = { "<cmd>SessionManager! save_current_session<cr>", desc = "Save this session" }
+  maps.n["<leader>sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
+  maps.n["<leader>sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
+  maps.n["<leader>s."] =
   { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 if is_available "resession.nvim" then
-  maps.n["<leader>S"] = sections.S
-  maps.n["<leader>Sl"] = { function() require("resession").load "Last Session" end, desc = "Load last session" }
-  maps.n["<leader>Ss"] = { function() require("resession").save() end, desc = "Save this session" }
-  maps.n["<leader>St"] = { function() require("resession").save_tab() end, desc = "Save this tab's session" }
-  maps.n["<leader>Sd"] = { function() require("resession").delete() end, desc = "Delete a session" }
-  maps.n["<leader>Sf"] = { function() require("resession").load() end, desc = "Load a session" }
-  maps.n["<leader>S."] = {
+  maps.n["<leader>s"] = sections.S
+  maps.n["<leader>sl"] = { function() require("resession").load "Last Session" end, desc = "Load last session" }
+  maps.n["<leader>ss"] = { function() require("resession").save() end, desc = "Save this session" }
+  maps.n["<leader>st"] = { function() require("resession").save_tab() end, desc = "Save this tab's session" }
+  maps.n["<leader>sd"] = { function() require("resession").delete() end, desc = "Delete a session" }
+  maps.n["<leader>sf"] = { function() require("resession").load() end, desc = "Load a session" }
+  maps.n["<leader>s."] = {
     function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
     desc = "Load current directory session",
   }
@@ -320,6 +329,9 @@ if is_available "telescope.nvim" then
   maps.n["<leader>fc"] = { function() require("telescope.builtin").grep_string() end, desc = "Find word under cursor" }
   maps.n["<leader>fC"] = { function() require("telescope.builtin").commands() end, desc = "Find commands" }
   maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" }
+  maps.n["<leader>fl"] = { function() require("telescope.builtin").live_grep() end, desc = "Live grep" }
+  maps.n["<f5>"] = { function() require("telescope.builtin").live_grep() end, desc = "Live grep" }
+  maps.i["<f5>"] = { function() require("telescope.builtin").live_grep() end, desc = "Live grep" }
   maps.n["<C-p>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" }
   vim.keymap.set("i", "<C-p>", function() require("telescope.builtin").find_files() end)
   maps.n["<leader>fF"] = {
@@ -403,7 +415,7 @@ if is_available "nvim-dap" then
   maps.v["<leader>d"] = sections.d
   -- modified function keys found with `showkey -a` in the terminal to get key code
   -- run `nvim -V3log +quit` and search through the "Terminal info" in the `log` file for the correct keyname
-  maps.n["<F5>"] = { function() require("dap").continue() end, desc = "Debugger: Start" }
+  maps.n["<S-F5>"] = { function() require("dap").continue() end, desc = "Debugger: Start" }
   maps.n["<F17>"] = { function() require("dap").terminate() end, desc = "Debugger: Stop" } -- Shift+F5
   maps.n["<F21>"] = {                                                                      -- Shift+F9
     function()
@@ -469,10 +481,10 @@ maps.v["<S-Tab>"] = { "<gv", desc = "Unindent line" }
 maps.v["<Tab>"] = { ">gv", desc = "Indent line" }
 
 -- Improved Terminal Navigation
-maps.t["<C-h>"] = { "<cmd>wincmd h<cr>", desc = "Terminal left window navigation" }
-maps.t["<C-j>"] = { "<cmd>wincmd j<cr>", desc = "Terminal down window navigation" }
-maps.t["<C-k>"] = { "<cmd>wincmd k<cr>", desc = "Terminal up window navigation" }
-maps.t["<C-l>"] = { "<cmd>wincmd l<cr>", desc = "Terminal right window navigation" }
+maps.t["<S-h>"] = { "<cmd>wincmd h<cr>", desc = "Terminal left window navigation" }
+maps.t["<S-j>"] = { "<cmd>wincmd j<cr>", desc = "Terminal down window navigation" }
+maps.t["<S-k>"] = { "<cmd>wincmd k<cr>", desc = "Terminal up window navigation" }
+maps.t["<S-l>"] = { "<cmd>wincmd l<cr>", desc = "Terminal right window navigation" }
 
 maps.n["<leader>u"] = sections.u
 -- Custom menu for modification of the user experience
@@ -499,3 +511,4 @@ maps.n["<leader>uy"] = { ui.toggle_syntax, desc = "Toggle syntax highlighting (b
 maps.n["<leader>uh"] = { ui.toggle_foldcolumn, desc = "Toggle foldcolumn" }
 
 utils.set_mappings(astronvim.user_opts("mappings", maps))
+

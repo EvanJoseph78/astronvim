@@ -1,3 +1,4 @@
+-- Utilits Remap
 vim.keymap.set("n", "<C-left>", "b")
 vim.keymap.set("n", "<C-right>", "w")
 vim.keymap.set("", "<pageDown>", "<C-d>")
@@ -12,8 +13,12 @@ vim.keymap.set("n", "<A-down>", "<C-W>-")
 vim.keymap.set("n", "<C-a>", "ggVGy")
 vim.keymap.set("i", "<C-z>", "<Esc>ui")
 vim.keymap.set("i", "<C-r>", "<Esc><C-r>i")
-vim.keymap.set("n", "<C-f>", ":")
-vim.keymap.set("i", "<C-f>", "<Esc>:")
+vim.keymap.set("n", "<C-f>", "/")
+vim.keymap.set("i", "<C-f>", "<Esc>/")
+
+
+-- Visual Block
+vim.keymap.set("v", "p", '"_dP"')
 
 -- delete
 vim.keymap.set("n", "dx", "di'")
