@@ -16,7 +16,6 @@ vim.keymap.set("i", "<C-r>", "<Esc><C-r>i")
 vim.keymap.set("n", "<C-f>", "/")
 vim.keymap.set("i", "<C-f>", "<Esc>/")
 
-
 -- Visual Block
 vim.keymap.set("v", "p", '"_dP"')
 

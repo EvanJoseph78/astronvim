@@ -1,9 +1,3 @@
-if vim.g.vscode then
-  -- VSCode extension
-    require("vscodenvim")
-  -- require("vscode")
-else
-
 if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
 
 for _, source in ipairs {
@@ -28,8 +22,4 @@ end
 
 require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
 
-end
-
 require("evanjoseph")
-
-
