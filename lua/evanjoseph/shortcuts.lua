@@ -15,9 +15,14 @@ vim.keymap.set("i", "<C-z>", "<Esc>ui")
 vim.keymap.set("i", "<C-r>", "<Esc><C-r>i")
 vim.keymap.set("n", "<C-f>", "/")
 vim.keymap.set("i", "<C-f>", "<Esc>/")
+vim.keymap.set("n", "<tab>", ">>")
+vim.keymap.set("n", "<S-tab>", "<<")
+vim.keymap.set("n", "<enter>", "o<esc>")
+vim.keymap.set("n", "<BS>", "a<C-h><esc>")
 
 -- Visual Block
 vim.keymap.set("v", "p", '"_dP"')
+
 
 -- delete
 vim.keymap.set("n", "dx", "di'")
@@ -28,6 +33,8 @@ vim.keymap.set("n", "dk", "di[")
 vim.keymap.set("n", "dn", "dit")
 vim.keymap.set("n", "dA", "Gdgg")
 vim.keymap.set("n", "dW", "diwx")
+
+vim.keymap.set("n", "dp", "diw") -- deleta palavra
 -- delete
 --
 -- change
@@ -39,6 +46,9 @@ vim.keymap.set("n", "ck", "ci[")
 vim.keymap.set("n", "cn", "cit")
 vim.keymap.set("n", "cA", "ggcG")
 vim.keymap.set("n", "cW", "ciw")
+
+vim.keymap.set("n", "cp", "ciw") -- muda palavra
+
 -- change
 
 -- copy
@@ -53,6 +63,10 @@ vim.keymap.set("n", "en", "yit")
 vim.keymap.set("n", "eA", "ggyG")
 vim.keymap.set("n", "eW", "yiw")
 vim.keymap.set("n", "ee", "yy")
+
+vim.keymap.set("n", "ep", "yiw") -- copia palavra
+vim.keymap.set("n", "el", "_y$") -- copia linha sem quebra de linha
+
 -- copy
 
 -- past
@@ -69,20 +83,18 @@ vim.keymap.set("n", "wW", "viwp")
 
 -- Visual 
 
+vim.keymap.set("n", "vp", "viw") -- seleciona palavra
+vim.keymap.set("n", "vl", "_v$h") -- seleciona linha
 vim.keymap.set("n", "vA", "ggVG")
 vim.keymap.set("n", "vj", "vi(")
+vim.keymap.set("v", "(", "c()<Esc>hp")
 vim.keymap.set("n", "vo", "vi{")
+vim.keymap.set("v", "{", "c{}<Esc>hp")
 vim.keymap.set("n", "vk", "vi[")
+vim.keymap.set("v", "[", "c[]<Esc>hp")
 vim.keymap.set("n", "vq", "vi\"")
+vim.keymap.set("v", "\"", "c\"\"<Esc>hp")
 vim.keymap.set("n", "vx", "vi'")
-
-
--- 'Evandro José da Silva Mcriano'
-
-
-
-
-
-
+vim.keymap.set("v", "'", "c''<Esc>hp")
 
 

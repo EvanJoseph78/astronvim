@@ -27,7 +27,7 @@ return {
         end,
         desc = "Goto index of mark",
       },
-      { "<S-i>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
+      { "<C-i>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
       { "<C-u>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
       -- { prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
       { "<space>a", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
