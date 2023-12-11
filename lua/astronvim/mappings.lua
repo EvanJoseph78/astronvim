@@ -5,6 +5,7 @@ local is_available = utils.is_available
 local ui = require "astronvim.utils.ui"
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
+local opts = { noremap = true, silent = true }
 
 local maps = require("astronvim.utils").empty_map_table()
 
@@ -265,12 +266,18 @@ if is_available "smart-splits.nvim" then
   maps.n["<C-j>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" }
   maps.n["<C-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" }
   maps.n["<C-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" }
-  maps.n["<S-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" }
-  maps.n["<S-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
-  maps.n["<S-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
-  maps.n["<S-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
-  maps.n["<C-S-Left>"] = { ":m .-2<CR>", desc = "Move to left down" }
-  maps.n["<C-S-Right>"] = { ":m .+1<CR>", desc = "Move to line up" }
+  -- maps.n["<C-S-Left>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" }
+  -- maps.n["<C-S-Right>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
+  maps.n["<A-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
+  maps.n["<A-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
+  maps.n["<A-Up>"] = { ":m .-2<CR>", desc = "Move to left down" }
+  maps.n["<A-Down>"] = { ":m .+1<CR>", desc = "Move to line up" }
+  maps.i["<A-Up>"] = { "<Esc>:m .-2<CR>", desc = "Move to left down" }
+  maps.i["<A-Down>"] = { "<Esc>:m .+1<CR>", desc = "Move to line up" }
+
+  -- maps.v["<S-Up>"] = { ":'<,'>move'>+1<CR>v", desc = "Move text up"}
+  -- maps.v["<S-Down>"] = { ":'<,'>move'>-2<CR>", desc = "Move text down"}
+
 else
   maps.n["<C-h>"] = { "<C-w>h", desc = "Move to left split" }
   maps.n["<C-j>"] = { "<C-w>j", desc = "Move to below split" }

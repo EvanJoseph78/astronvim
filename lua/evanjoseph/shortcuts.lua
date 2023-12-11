@@ -1,100 +1,168 @@
--- Utilits Remap
-vim.keymap.set("n", "<C-left>", "b")
-vim.keymap.set("n", "<C-right>", "w")
-vim.keymap.set("", "<pageDown>", "<C-d>")
-vim.keymap.set("", "<pageUp>", "<C-u>")
-vim.keymap.set("i", "<C-s>", "<cmd>w!<cr><Esc>zzi")
-vim.keymap.set("", "<C-z>", "<Esc>u")
-vim.keymap.set("i", "<C-h>", "<C-w>")
-vim.keymap.set("n", "<C-S-pageUp>", "<C-W><")
-vim.keymap.set("n", "<C-S-pageDown>", "<C-W>>")
-vim.keymap.set("n", "<A-up>", "<C-W>+")
-vim.keymap.set("n", "<A-down>", "<C-W>-")
-vim.keymap.set("n", "<C-a>", "ggVGy")
-vim.keymap.set("i", "<C-z>", "<Esc>ui")
-vim.keymap.set("i", "<C-r>", "<Esc><C-r>i")
-vim.keymap.set("n", "<C-f>", "/")
-vim.keymap.set("i", "<C-f>", "<Esc>/")
-vim.keymap.set("n", "<tab>", ">>")
-vim.keymap.set("n", "<S-tab>", "<<")
-vim.keymap.set("n", "<enter>", "o<esc>")
-vim.keymap.set("n", "<BS>", "a<C-h><esc>")
+local opts = { noremap = true, silent = true }
+
+local term_opts = { silent = true }
+
+-- Shorten function name
+local keymap = vim.keymap.set
+
+-- Insert --
+
+keymap("i", "<S-Right>", "<Esc>vl")
+keymap("i", "<S-Left>", "<Esc>vh")
+keymap("i", "<S-Up>", "<Esc>vk")
+keymap("i", "<S-Down>", "<Esc>vj")
+keymap("i", "<C-S-Right>", "<Esc>ve")
+keymap("i", "<C-S-Left>", "<Esc>vb")
+keymap("i", "<S-End>", "<Esc>v$")
+keymap("i", "<S-Home>", "<Esc>v_")
+
+keymap("n", "<S-Right>", "<Esc>vl")
+keymap("n", "<c-s-right>", "<esc>ve")
+keymap("n", "<C-S-Left>", "<Esc>vb")
+keymap("n", "<S-Left>", "<Esc>vh")
+keymap("n", "<S-Up>", "<Esc>vk")
+keymap("n", "<S-Down>", "<Esc>vj")
+keymap("n", "<S-End>", "<Esc>v$")
+keymap("n", "<S-Home>", "<Esc>v_")
+
+-- Insert --
 
 -- Visual Block
-vim.keymap.set("v", "p", '"_dP"')
+
+keymap("v", "<S-Right>", "l")
+keymap("v", "<S-Left>", "h")
+keymap("v", "<S-Up>", "k")
+keymap("v", "<S-Down>", "j")
+keymap("v", "<C-S-Right>", "e")
+keymap("v", "<C-S-Left>", "b")
+keymap("n", "<S-End>", "$")
+keymap("n", "<S-Home>", "_")
+
+-- Visual Block
+
+keymap("v", "p", '"_dP"')
+
+-- Utilits Remap
+keymap("n", "<C-left>", "b")
+keymap("n", "<C-right>", "w")
+keymap("", "<pageDown>", "<C-d>")
+keymap("", "<pageUp>", "<C-u>")
+keymap("i", "<C-s>", "<cmd>w!<cr><Esc>zzi")
+keymap("", "<C-z>", "<Esc>u")
+keymap("i", "<C-h>", "<C-w>")
+keymap("n", "<C-S-pageUp>", "<C-W><")
+keymap("n", "<C-S-pageDown>", "<C-W>>")
+keymap("n", "<A-up>", "<C-W>+")
+keymap("n", "<A-down>", "<C-W>-")
+keymap("n", "<C-a>", "ggVGy")
+keymap("i", "<C-z>", "<Esc>ui")
+keymap("i", "<C-r>", "<Esc><C-r>i")
+keymap("n", "<C-f>", "/")
+keymap("i", "<C-f>", "<Esc>/")
+keymap("n", "<tab>", ">>")
+keymap("n", "<S-tab>", "<<")
+keymap("n", "<enter>", "o<esc>")
+keymap("n", "<BS>", "a<C-h><esc>")
+
 
 
 -- delete
-vim.keymap.set("n", "dx", "di'")
-vim.keymap.set("n", "dq", "di\"")
-vim.keymap.set("n", "dj", "di(")
-vim.keymap.set("n", "do", "di{")
-vim.keymap.set("n", "dk", "di[")
-vim.keymap.set("n", "dn", "dit")
-vim.keymap.set("n", "dA", "Gdgg")
-vim.keymap.set("n", "dW", "diwx")
+keymap("n", "dx", "di'")
+keymap("n", "dq", "di\"")
+keymap("n", "dj", "di(")
+keymap("n", "do", "di{")
+keymap("n", "dk", "di[")
+keymap("n", "dn", "dit")
+keymap("n", "dA", "Gdgg")
+keymap("n", "dW", "diwx")
 
-vim.keymap.set("n", "dp", "diw") -- deleta palavra
+keymap("n", "dp", "diw") -- deleta palavra
 -- delete
 --
 -- change
-vim.keymap.set("n", "cx", "ci'")
-vim.keymap.set("n", "cq", "ci\"")
-vim.keymap.set("n", "cj", "ci(")
-vim.keymap.set("n", "co", "ci{")
-vim.keymap.set("n", "ck", "ci[")
-vim.keymap.set("n", "cn", "cit")
-vim.keymap.set("n", "cA", "ggcG")
-vim.keymap.set("n", "cW", "ciw")
+keymap("n", "cx", "ci'")
+keymap("n", "cq", "ci\"")
+keymap("n", "cj", "ci(")
+keymap("n", "co", "ci{")
+keymap("n", "ck", "ci[")
+keymap("n", "cn", "cit")
+keymap("n", "cA", "ggcG")
+keymap("n", "cW", "ciw")
 
-vim.keymap.set("n", "cp", "ciw") -- muda palavra
+keymap("n", "cp", "ciw") -- muda palavra
 
 -- change
 
 -- copy
-vim.keymap.set("", "e", "y")
-vim.keymap.set("n", "E", "_y$")
-vim.keymap.set("n", "ex", "yi'")
-vim.keymap.set("n", "eq", "yi\"")
-vim.keymap.set("n", "ej", "yi(")
-vim.keymap.set("n", "eo", "yi{")
-vim.keymap.set("n", "ek", "yi[")
-vim.keymap.set("n", "en", "yit")
-vim.keymap.set("n", "eA", "ggyG")
-vim.keymap.set("n", "eW", "yiw")
-vim.keymap.set("n", "ee", "yy")
+keymap("", "e", "y")
+keymap("n", "E", "_y$")
+keymap("n", "ex", "yi'")
+keymap("n", "eq", "yi\"")
+keymap("n", "ej", "yi(")
+keymap("n", "eo", "yi{")
+keymap("n", "ek", "yi[")
+keymap("n", "en", "yit")
+keymap("n", "eA", "ggyG")
+keymap("n", "eW", "yiw")
+keymap("n", "ee", "yy")
 
-vim.keymap.set("n", "ep", "yiw") -- copia palavra
-vim.keymap.set("n", "el", "_y$") -- copia linha sem quebra de linha
+keymap("n", "ep", "yiw") -- copia palavra
+keymap("n", "el", "_y$") -- copia linha sem quebra de linha
 
 -- copy
 
 -- past
-vim.keymap.set("n", "W", "P")
-vim.keymap.set("n", "ww", "p")
-vim.keymap.set("n", "wx", "vi'p")
-vim.keymap.set("n", "wq", "vi\"p")
-vim.keymap.set("n", "wj", "vi(p")
-vim.keymap.set("n", "wo", "vi{p")
-vim.keymap.set("n", "wk", "vi[p")
-vim.keymap.set("n", "wn", "vitp")
-vim.keymap.set("n", "wA", "ggvGp")
-vim.keymap.set("n", "wW", "viwp")
+keymap("n", "W", "P")
+keymap("n", "ww", "p")
+keymap("n", "wx", "vi'p")
+keymap("n", "wq", "vi\"p")
+keymap("n", "wj", "vi(p")
+keymap("n", "wo", "vi{p")
+keymap("n", "wk", "vi[p")
+keymap("n", "wn", "vitp")
+keymap("n", "wA", "ggvGp")
+keymap("n", "wW", "viwp")
 
 -- Visual 
 
-vim.keymap.set("n", "vp", "viw") -- seleciona palavra
-vim.keymap.set("n", "vl", "_v$h") -- seleciona linha
-vim.keymap.set("n", "vA", "ggVG")
-vim.keymap.set("n", "vj", "vi(")
-vim.keymap.set("v", "(", "c()<Esc>hp")
-vim.keymap.set("n", "vo", "vi{")
-vim.keymap.set("v", "{", "c{}<Esc>hp")
-vim.keymap.set("n", "vk", "vi[")
-vim.keymap.set("v", "[", "c[]<Esc>hp")
-vim.keymap.set("n", "vq", "vi\"")
-vim.keymap.set("v", "\"", "c\"\"<Esc>hp")
-vim.keymap.set("n", "vx", "vi'")
-vim.keymap.set("v", "'", "c''<Esc>hp")
+keymap("n", "vp", "viw") -- seleciona palavra
+keymap("n", "vl", "_v$h") -- seleciona linha
+keymap("n", "vA", "ggVG")
+keymap("n", "vj", "vi(")
+keymap("v", "(", "c()<Esc>hp")
+keymap("n", "vo", "vi{")
+keymap("v", "{", "c{}<Esc>hp")
+keymap("n", "vk", "vi[")
+keymap("v", "[", "c[]<Esc>hp")
+keymap("n", "vq", "vi\"")
+keymap("v", "\"", "c\"\"<Esc>hp")
+keymap("n", "vx", "vi'")
+keymap("v", "'", "c''<Esc>hp")
 
+-- Visual --
 
+-- Stay in indent mode
+keymap("v", "<", "<gv^", opts)
+keymap("v", ">", ">gv^", opts)
+
+-- Move text up and down
+keymap("v", "<A-Up>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-Down>", ":m '<-2<CR>gv=gv", opts)
+keymap("v", "p", '"_dP', opts)
+
+-- Visual Block --
+-- Move text up and down
+keymap("x", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
+keymap("x", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
