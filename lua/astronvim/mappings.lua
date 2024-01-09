@@ -270,10 +270,6 @@ if is_available "smart-splits.nvim" then
   -- maps.n["<C-S-Right>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
   maps.n["<A-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
   maps.n["<A-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
-  maps.n["<A-Up>"] = { ":m .-2<CR>", desc = "Move to left down" }
-  maps.n["<A-Down>"] = { ":m .+1<CR>", desc = "Move to line up" }
-  maps.i["<A-Up>"] = { "<Esc>:m .-2<CR>", desc = "Move to left down" }
-  maps.i["<A-Down>"] = { "<Esc>:m .+1<CR>", desc = "Move to line up" }
 
   -- maps.v["<S-Up>"] = { ":'<,'>move'>+1<CR>v", desc = "Move text up"}
   -- maps.v["<S-Down>"] = { ":'<,'>move'>-2<CR>", desc = "Move text down"}
@@ -283,10 +279,10 @@ else
   maps.n["<C-j>"] = { "<C-w>j", desc = "Move to below split" }
   maps.n["<C-k>"] = { "<C-w>k", desc = "Move to above split" }
   maps.n["<C-l>"] = { "<C-w>l", desc = "Move to right split" }
-  maps.n["<A-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" }
-  maps.n["<A-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" }
-  maps.n["<A-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" }
-  maps.n["<A-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" }
+  -- maps.n["<A-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" }
+  -- maps.n["<A-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" }
+  -- maps.n["<A-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" }
+  -- maps.n["<A-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" }
 end
 
 -- SymbolsOutline

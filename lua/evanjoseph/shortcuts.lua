@@ -5,16 +5,14 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.keymap.set
 
--- Insert --
+-- Normal 
+keymap("n", "<C-z>", "u")
+keymap("n", "<C-y>", "<C-r>")
+keymap("n", "<C-v>", "p")
 
-keymap("i", "<S-Right>", "<Esc>vl")
-keymap("i", "<S-Left>", "<Esc>vh")
-keymap("i", "<S-Up>", "<Esc>vk")
-keymap("i", "<S-Down>", "<Esc>vj")
-keymap("i", "<C-S-Right>", "<Esc>ve")
-keymap("i", "<C-S-Left>", "<Esc>vb")
-keymap("i", "<S-End>", "<Esc>v$")
-keymap("i", "<S-Home>", "<Esc>v_")
+--
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 keymap("n", "<S-Right>", "<Esc>vl")
 keymap("n", "<c-s-right>", "<esc>ve")
@@ -26,8 +24,30 @@ keymap("n", "<S-End>", "<Esc>v$")
 keymap("n", "<S-Home>", "<Esc>v_")
 
 -- Insert --
+keymap("i", "<C-z>", "<Esc>ui")
+keymap("i", "<C-y>", "<Esc><C-r>i")
+keymap("i", "<C-v>", "<Esc>pa")
 
--- Visual Block
+--
+keymap("i", "<A-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("i", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+
+keymap("i", "<S-Right>", "<Esc>vl")
+keymap("i", "<S-Left>", "<Esc>vh")
+keymap("i", "<S-Up>", "<Esc>vk")
+keymap("i", "<S-Down>", "<Esc>vj")
+keymap("i", "<C-S-Right>", "<Esc>ve")
+keymap("i", "<C-S-Left>", "<Esc>vb")
+keymap("i", "<S-End>", "<Esc>v$")
+keymap("i", "<S-Home>", "<Esc>v_")
+
+-- Insert --
+
+-- Visual Block-
+
+keymap("v", "<C-z>", "<Esc>u")
+keymap("v", "<C-y>", "<Esc><C-r>")
+
 
 keymap("v", "<S-Right>", "l")
 keymap("v", "<S-Left>", "h")
@@ -35,6 +55,8 @@ keymap("v", "<S-Up>", "k")
 keymap("v", "<S-Down>", "j")
 keymap("v", "<C-S-Right>", "e")
 keymap("v", "<C-S-Left>", "b")
+keymap("v", "<C-Right>", "e")
+keymap("v", "<C-Left>", "b")
 keymap("n", "<S-End>", "$")
 keymap("n", "<S-Home>", "_")
 
@@ -55,10 +77,11 @@ keymap("n", "<C-S-pageDown>", "<C-W>>")
 keymap("n", "<A-up>", "<C-W>+")
 keymap("n", "<A-down>", "<C-W>-")
 keymap("n", "<C-a>", "ggVGy")
-keymap("i", "<C-z>", "<Esc>ui")
+-- keymap("i", "<C-z>", "<Esc>ui")
 keymap("i", "<C-r>", "<Esc><C-r>i")
 keymap("n", "<C-f>", "/")
 keymap("i", "<C-f>", "<Esc>/")
+keymap("n", "<tab>", ">>")
 keymap("n", "<tab>", ">>")
 keymap("n", "<S-tab>", "<<")
 keymap("n", "<enter>", "o<esc>")
@@ -146,20 +169,14 @@ keymap("v", "<", "<gv^", opts)
 keymap("v", ">", ">gv^", opts)
 
 -- Move text up and down
-keymap("v", "<A-Up>", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "<A-Down>", ":m '<-2<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-j>", ":m '<-2<CR>gv=gv", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "<A-Down>", ":m '>+1<CR>gv=gv", opts)
-keymap("x", "<A-Up>", ":m '<-2<CR>gv=gv", opts)
---
---
---
---
---
---
+keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 --
 --
 --
