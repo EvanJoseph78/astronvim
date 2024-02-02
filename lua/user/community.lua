@@ -1,6 +1,7 @@
 return{
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.motion.harpoon", enable = true },
+  { import = "astrocommunity.pack.angular", enable = true}
   
 
   { -- further customize the options set by the community
